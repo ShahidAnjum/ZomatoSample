@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ZomatoSample</string>
+    <string name="update_your_location">Update your location</string>
+    <string name="access_location_description">We only access your location while you are using the app to improve your experience</string>
+    <string name="go_to_settings">GO TO SETTINGS</string>
+    <string name="location_settings_navigation_description"><![CDATA[it looks like you have turned off permissions required for this feature. It can be enabled under Phone Settings > Apps > ZomatoSample > Permissions]]></string>
+    <string name="seach_for_restuarants_cuisine"> Search for restuarant cuisine</string>
+</resources>

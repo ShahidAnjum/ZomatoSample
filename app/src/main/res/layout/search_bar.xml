@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="secondayViewModel"
+            type="com.sample.zomatosample.ui.search.SearchViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/ll_searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:elevation="@dimen/_2dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:padding="@dimen/_10dp"
+            app:srcCompat="@drawable/ic_search_black_24dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/iv_clear"
+            android:layout_toEndOf="@id/iv_search"
+            android:background="@null"
+            android:ellipsize="end"
+            android:hint="@string/seach_for_restuarants_cuisine"
+            android:maxLines="1"
+            android:text="@{secondayViewModel.searchedText}"
+            android:onTextChanged="@{secondayViewModel.onTextChanged}"
+            android:paddingTop="@dimen/_5dp"
+            android:paddingBottom="@dimen/_5dp"
+            android:textSize="@dimen/_16sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@id/iv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_10dp"
+            app:srcCompat="@drawable/ic_clear_black_18dp"
+            android:onClick="@{() -> secondayViewModel.onClickClear()}"
+            android:visibility="@{(secondayViewModel.searchedText.length() > 0) &amp;&amp; !secondayViewModel.isSearchingRestuarants ?  View.VISIBLE : View.GONE}"
+            />
+
+        <ProgressBar
+            android:id="@+id/pb_search"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_10dp"
+            android:visibility="@{secondayViewModel.isSearchingRestuarants ?  View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+</layout>
